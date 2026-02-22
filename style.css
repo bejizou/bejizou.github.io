@@ -149,7 +149,7 @@ h2::after {
 }
 .custom-nav .btn-outline-primary {
     color: var(--primary);
-    border-color: var(--primary);
+    border-color: transparent;
     transition: all 0.3s ease;
 }
 .custom-nav .btn-outline-primary:hover {
@@ -193,6 +193,7 @@ h2::after {
     font-size: 5.5rem;
     font-weight: 900;
     text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-family: fantasy;
 }
 .hero-section .lead {
     font-size: 1.75rem;
