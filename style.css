@@ -366,11 +366,12 @@ h2::after {
 }
 
 #portfolio .portfolioContent .card-img-top {
-    height: 150px;
+    height: 180px;
     object-fit: cover;
     border-top-left-radius: 18px; /* Ajuste légèrement le radius pour le coin de l'image */
     border-top-right-radius: 18px;
     transition: transform 0.4s ease;
+    
 
 }
 #portfolio .portfolioContent:hover .card-img-top {
