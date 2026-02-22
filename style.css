@@ -1,0 +1,614 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+
+/* Conteneur des particules */
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Derrière tout le contenu */
+    background-color: #020617;
+}
+
+/* Effets de halos colorés mouvants (Glow) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+.bg-darker {
+    background: rgba(11, 17, 30, 0.4) !important; /* Semi-transparent */
+    backdrop-filter: blur(5px);
+}
+
+
+
+:root {
+    --primary: #6366f1; /* Bleu violet */
+    --secondary: #a855f7; /* Violet */
+    --success: #10b981; /* Vert émeraude */
+    --dark-bg: #0f172a; /* Bleu nuit profond */
+    --darker-bg: #0b111e; /* Encore plus sombre pour les sections */
+    --glass: rgba(255, 255, 255, 0.03); /* Transparence pour le glassmorphism */
+    --text-main: #f8fafc; /* Blanc cassé pour le texte principal */
+    --text-muted: #cbd5e1; /* Gris clair pour les textes secondaires */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.125rem;
+    color: var(--text-main);
+    scroll-behavior: smooth;
+    background-color: var(--dark-bg);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Général */
+h1, h2, h3, h4, p, a, li {
+    cursor: default; /* Empêche le curseur texte sur les éléments statiques */
+}
+
+/* Sections */
+section {
+    padding: 6rem 2rem;
+    scroll-margin-top: 80px; /* Pour un défilement doux vers les ancres */
+      background: transparent !important;
+}
+.bg-darker {
+    background-color: var(--darker-bg);
+}
+
+/* Titres */
+h2 {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--text-main);
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* Classes utilitaires personnalisées */
+.text-gradient {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text-gradient-icon {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bg-soft-primary {
+    background-color: rgba(99, 102, 241, 0.15) !important;
+    color: var(--primary) !important;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Navbar */
+.custom-nav {
+    background: rgba(15, 23, 42, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 0;
+}
+.custom-nav .navbar-brand {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+.custom-nav .navbar-brand:hover {
+    color: var(--primary);
+    transform: scale(1.05);
+}
+.custom-nav .nav-link {
+    color: var(--text-muted) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+.custom-nav .nav-link.active,
+.custom-nav .nav-link:hover {
+   /* color: var(--primary) !important;*/
+    font-weight: 600;
+    transform: translateY(-2px);
+}
+.custom-nav .nav-link.active::after,
+.custom-nav .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 1rem; /* Adjust to align with text */
+    width: calc(100% - 2rem); /* Adjust width */
+    height: 2px;
+    background: var(--primary);
+    border-radius: 1px;
+}
+.custom-nav .btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+    transition: all 0.3s ease;
+}
+.custom-nav .btn-outline-primary:hover {
+   background-color: var(--primary);
+    color: var(--text-main);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 70%),
+                radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.1), transparent 70%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+    background-size: 15px 15px; /* Adjust grid size */
+    opacity: 0.3;
+    animation: background-move 60s linear infinite;
+}
+@keyframes background-move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 1500px 1500px; /* Larger than typical screen */
+    }
+}
+
+.hero-section .display-1 {
+    font-size: 5.5rem;
+    font-weight: 900;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.hero-section .lead {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+.btn-primary {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+}
+.btn-light {
+    background-color: var(--text-main);
+    color: var(--dark-bg);
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-light:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 25px rgba(99, 102, 241, 0.4);
+}
+.glass-card .fa-robot {
+    opacity: 0.8;
+}
+
+/* About Section */
+.imageAboutPage {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.imageAboutPage:hover {
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
+#about p {
+    color: var(--text-muted);
+}
+#about .list-unstyled li {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Skills Section */
+#skills .row, #portfolio .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espace entre les cartes */
+    justify-content: center; /* Centrer les cartes si moins de 3 */
+}
+#skills .col-lg-4, #portfolio .col-lg-4 {
+    flex-basis: calc(33.333% - 20px); /* Ajuste la largeur pour 3 colonnes avec gap */
+    max-width: calc(33.333% - 20px);
+}
+@media (max-width: 992px) {
+    #skills .col-lg-4, #portfolio .col-lg-4 {
+        flex-basis: calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+@media (max-width: 768px) {
+    #skills .col-lg-4, #portfolio .col-lg-4 {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+
+.skillsText.card {
+    height: 380px; /* Hauteur fixe pour toutes les cartes */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--glass) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px;
+    color: var(--text-main);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+}
+
+.skillsText.card:hover {
+    transform: translateY(-12px);
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+    background: rgba(255, 255, 255, 0.07) !important;
+}
+
+.skillsText img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    transition: transform 0.5s ease;
+}
+
+.skillsText:hover img {
+    transform: scale(1.15) rotate(3deg);
+}
+
+.skillsText .card-title {
+    color: var(--text-main);
+    font-weight: 600;
+    margin-top: 12px;
+    font-size: 1.4rem;
+}
+.skillsText .card-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Portfolio Section */
+#portfolio .portfolioContent {
+    height: 480px; /* Hauteur fixe pour les cartes de portfolio */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--glass) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px;
+    color: var(--text-main);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+}
+
+#portfolio .portfolioContent:hover {
+    transform: translateY(-12px);
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+    background: rgba(255, 255, 255, 0.07) !important;
+}
+
+#portfolio .portfolioContent .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 18px; /* Ajuste légèrement le radius pour le coin de l'image */
+    border-top-right-radius: 18px;
+    transition: transform 0.4s ease;
+}
+#portfolio .portfolioContent:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+#portfolio .portfolioContent .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+#portfolio .portfolioContent .card-title {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+#portfolio .portfolioContent .card-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    flex-grow: 1; /* Permet au texte de prendre l'espace disponible */
+}
+
+/* Badge "QA PASSED" */
+.portfolioContent::before {
+    content: "QA PASSED";
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: var(--success);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Progress bar pour QA Status */
+.qa-status .progress {
+    background-color: rgba(255,255,255,0.1);
+    height: 8px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.qa-status .progress-bar {
+    background-color: var(--success);
+    border-radius: 50px;
+}
+.qa-status small {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+    display: block;
+}
+
+
+/* Contact Section */
+.contactColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    transition: transform 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contactColumn:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    border-color: var(--primary);
+}
+
+.contactColumn i {
+    font-size: 4rem;
+    color: var(--primary); /* icônes en couleur primaire */
+    margin-bottom: 1rem;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.contactColumn:hover i {
+    transform: scale(1.15);
+    color: var(--secondary); /* Changer de couleur au survol */
+}
+
+.contactColumn h4 {
+    color: var(--text-main);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.contactColumn p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+#contact a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: color 0.3s ease;
+}
+#contact a:hover {
+    color: var(--secondary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .hero-section .display-1 {
+        font-size: 4.5rem;
+    }
+    .hero-section .lead {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section .display-1 {
+        font-size: 3.5rem;
+    }
+    .hero-section .lead {
+        font-size: 1.25rem;
+    }
+    .imageAboutPage {
+        width: 200px;
+        height: 200px;
+    }
+    .glass-card {
+        padding: 3rem !important;
+    }
+    .contactColumn {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section .display-1 {
+        font-size: 2.5rem;
+    }
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+    section {
+        padding: 4rem 1rem;
+    }
+    .glass-card {
+        padding: 2rem !important;
+    }
+    .skillsText.card, #portfolio .portfolioContent {
+        height: auto; /* Permet aux cartes de s'adapter au contenu sur mobile */
+        min-height: 300px; /* Mais garde une taille minimale */
+        margin-bottom: 1rem;
+    }
+    .skillsText img {
+        width: 100px;
+        height: 100px;
+    }
+    .portfolioContent .card-img-top {
+        height: 150px;
+    }
+    .contactColumn i {
+        font-size: 3rem;
+    }
+    .contactColumn h4 {
+        font-size: 1.25rem;
+    }
+   /* ... suite du code @media (max-width: 768px) ... */
+    .contactColumn p {
+        font-size: 0.95rem;
+    }
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 3rem 0;
+    background: var(--darker-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- ANIMATIONS ADDITIONNELLES --- */
+
+/* Animation de flottement pour l'icône robot ou les cartes */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.text-gradient-icon {
+    animation: floating 4s ease-in-out infinite;
+}
+
+/* Personnalisation de la barre de défilement (Scrollbar) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary), var(--secondary));
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Fix pour Bootstrap Navbar Mobile */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: var(--darker-bg);
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+.skip-link {
+  position:absolute;
+  top:-40px;
+  left:0;
+  background:#000;
+  color:#fff;
+  padding:8px 16px;
+  z-index:1000;
+}
+
+.skip-link:focus {
+  top:0;
+}
