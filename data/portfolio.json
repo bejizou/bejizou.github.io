@@ -1,0 +1,39 @@
+[
+    {
+        "image": "print.webp",
+        "title": "Print it",
+        "text": "Mise à jour d'un code HTML en ajoutant un carrousel en JavaScript.",
+        "link": "https://github.com/bejizou/print-it"
+    },
+    {
+        "image": "sophie.webp",
+        "title": "Sophie Bluel",
+        "text": "Création d'une page web dynamique pour le site d'une architecte, implémentation d’une galerie et d’une modale admin, Gestion du DOM et des événements, requêtes API pour l’authentification et l’affichage des contenus",
+        "link": "https://github.com/bejizou/Portfolio-architecte-sophie-bluel"
+    },
+    {
+        "image": "kasa.webp",
+        "title": "Kasa - Location immobilière en React",
+        "text": "Application React de location immobilière avec affichage des logements, filtres, et navigation fluide, conçue avec React Router.",
+        "link": "https://github.com/bejizou/TesteurLogiciel_appli_location_immobiliere_React-main"
+    },
+    {
+        "image": "auto.webp",
+        "title": "Eco Bliss Bath",
+        "text": "Automatisation de tests pour un site e-commerce écoresponsable : API, smoke tests, XSS, et tests fonctionnels critiques avec Cypress.",
+        "link": "https://github.com/bejizou/Eco-Bliss-Bath-V2/"
+    },
+     {
+        "image": "strategy.webp",
+        "title": "Stratégie de test PayForge",
+        "text": "Élaboration complète de la stratégie de test pour le projet TOMSEN (PayForge) incluant revue des exigences, cahier de recette, sprints et campagne de non-régression.",
+        "link": "https://github.com/bejizou/PayForge_P11"
+    }
+    ,
+    {
+        "image": "qwenta.webp",
+        "title": "Qwenta",
+        "text": "Application web permettant aux restaurateurs de créer, personnaliser et exporter leurs menus en PDF grâce à une interface intuitive et un éditeur visuel complet.",
+        "link": "https://github.com/bejizou/Qwenta"
+    }
+]
