@@ -99,7 +99,7 @@ function createSkillsFromJSON() {
                     <div class="card skillsText">
                         <div class="card-body">
                             <img src="./images/${item.image}" alt="${item.title}" />
-                            <h4 class="card-title">${item.title}</h4>
+                            <h3 class="card-title">${item.title}</h3>
                             <p class="card-text">${item.text}</p>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
                     <div class="card portfolioContent">
                         <img class="card-img-top" src="images/${item.image}" alt="${item.title}">
                         <div class="card-body">
-                            <h4 class="card-title text-gradient">${item.title}</h4>
+                            <h3 class="card-title text-gradient">${item.title}</h3>
                             <p class="card-text">${item.text}</p>
                             
                             <div class="qa-status mt-3 mb-3">
