@@ -55,6 +55,9 @@ body {
 h1, h2, h3, h4, p, a, li {
     cursor: default; /* Empêche le curseur texte sur les éléments statiques */
 }
+h2.text-center {
+    color: #ffffff; /* texte blanc */
+}
 
 /* Sections */
 section {
@@ -165,7 +168,7 @@ h2::after {
     display: flex;
     align-items: center;
     justify-content: center;
-     background-color: #1a1a1a; /* fond sombre */
+    background-color: #ffffff; /* fond clair */
     background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 70%),
                 radial-gradient(circle at bottom left, rgba(168, 85, 247, 0.1), transparent 70%);
     position: relative;
@@ -201,8 +204,7 @@ h2::after {
 .hero-section .lead {
     font-size: 1.75rem;
     font-weight: 400;
-   
-    color: #ffffff; /* texte blanc */
+    color: #1a1a1a; /* texte sombre */
 }
 .btn-primary {
     background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -217,9 +219,9 @@ h2::after {
     box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
 }
 .btn-outline-light {
-    color: #ffffff; /* texte plus clair */
-    border-color: #ffffff; /* bordure visible */
-     background-color: #1a1a1a;
+    color: #1a1a1a; /* texte noir foncé */
+    border-color: #1a1a1a; /* bordure noire */
+    background-color: #ffffff; /* fond clair */
 }
 .btn-light {
     background-color: var(--text-main);
