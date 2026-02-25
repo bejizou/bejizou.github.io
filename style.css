@@ -56,7 +56,7 @@ h1, h2, h3, h4, p, a, li {
     cursor: default; /* Empêche le curseur texte sur les éléments statiques */
 }
 h2.text-center {
-    color: #ffffff; /* texte blanc */
+    color: #1a1a1a;  /* texte blanc */
 }
 
 /* Sections */
@@ -219,9 +219,9 @@ h2::after {
     box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
 }
 .btn-outline-light {
-    color: #1a1a1a; /* texte noir foncé */
-    border-color: #1a1a1a; /* bordure noire */
-    background-color: #ffffff; /* fond clair */
+    color: #ffffff; /* texte blanc */
+    border-color: #ffffff;
+    background-color: #1a1a1a; /* fond sombre */
 }
 .btn-light {
     background-color: var(--text-main);
