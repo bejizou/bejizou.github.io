@@ -56,7 +56,7 @@ h1, h2, h3, h4, p, a, li {
     cursor: default; /* Empêche le curseur texte sur les éléments statiques */
 }
 h2.text-center {
-    color: #1a1a1a;  /* texte blanc */
+    color: #ffffff;  /* texte blanc */
 }
 
 /* Sections */
